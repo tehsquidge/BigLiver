@@ -6,6 +6,9 @@ Simple Plugin JQuery for growing and shrinking text to fill its container - only
 
 Usage
 ========
+
+No options - only submission
+
 ```
 $('h1').bigLiver();
 ```
