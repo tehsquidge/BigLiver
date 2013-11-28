@@ -17,10 +17,11 @@
         }
         
         plugin.resize = function() {
-            $(element).css('display','inline-block');
+            $(element).css('float','left');
             $(element).css('white-space', 'nowrap');
             var parent_width = $(element).parent().width();
             var percentage = parent_width/$(element).width();
+             $(element).css('line-height', Math.floor(parseInt($(element).css('font-size')) * percentage) + 'px');
             $(element).css('font-size', Math.floor(parseInt($(element).css('font-size')) * percentage));
         }
         
@@ -36,6 +37,7 @@
             if (undefined == $(this).data('bigLiver')) {
                 var plugin = new $.bigLiver(this, options);
                 $(this).data('bigLiver', plugin);
+                $(this).after('<div style="clear:both;"></div>');
             }
             $(this).data('bigLiver').resize();
             $(window).bind('resize.bigLiver', $(this).data('bigLiver').resize );
